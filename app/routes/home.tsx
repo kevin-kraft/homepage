@@ -24,7 +24,7 @@ export default function Home() {
   { icon: <FaGithub />, text: <a href="https://github.com/GlobalGurke" target="_blank" rel="noopener noreferrer">Github</a> },
 ];
   return (
-    <div className="w-full block">
+    <div className="w-full block color black">
     <main className="pt-16 p-8 container mx-auto">
       <div className="w-full block">
           <div className="w-full flex justify-between items-start">
