@@ -5,12 +5,12 @@ import { FaEnvelope } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaMapMarker } from "react-icons/fa";
 import { FaLandmark } from "react-icons/fa";
-import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaRegCalendarAlt } from "react-icons/fa"; 
 import Footer from "~/components/Footer";
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Homepage - Kevin Kraft" },
+    { name: "description", content: "Willkommen auf der Homepage von Kevin Kraft!" },
   ];
 }
 
