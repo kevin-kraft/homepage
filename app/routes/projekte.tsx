@@ -5,7 +5,7 @@ export default function Projekte() {
     return (
         <div className="pt-16 p-8 container mx-auto w-full flex flex-col justify-center ">
             <h1 className="text-4xl  text-center "><strong>Meine Projekte</strong></h1>
-            <div className="mt-8 w-full bg-[#DEDEDE] p-4 rounded-sm shadow-md ">
+            <div className="mt-8 w-full  bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6  my-4 ">
                 <h2 className="text-1xl mb-4 border-b-2 border-blue-900"><strong>Pluginentwicklung: gg-Persistent-Vehicles</strong></h2>
                 <p className="cursor-default">Dieses Projekt ist Teil des gg-scripts-Projekts, in dessen Rahmen ich Plugins für die Spieleplattform FiveM entwickle und vertreibe.
                 Das Plugin dient der Fahrzeugverwaltung und bietet unter anderem die Möglichkeit, Fahrzeuge persistent zwischen Serverneustarts zu speichern.
@@ -16,7 +16,7 @@ export default function Projekte() {
                 
 
             </div>
-             <div className="mt-8 w-full bg-[#DEDEDE] p-4 rounded-sm shadow-md ">
+             <div className="mt-8 w-full  bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6   my-4">
                 <h2 className="text-1xl mb-4 border-b-2 border-blue-900"><strong>Pluginentwicklung: gg-computers [In Entwicklung]</strong></h2>
                 <p className="cursor-default">Dieses Plugin stellt ein virtuelles Computersystem dar, das dank umfangreicher Konfigurationsmöglichkeiten in verschiedene Betriebsmodi versetzt werden kann.
 Es verfügt über ein gruppenbasiertes Rechtesystem, einen Datei-Explorer, einen Texteditor, eine Benutzerverwaltung sowie eine Einstellungsseite.
@@ -26,12 +26,12 @@ Derzeit befindet sich das Script noch in Entwicklung, da einige Funktionen – e
                 <br></br>
                 <p><strong>Programmiersprachen:</strong> Lua, Javascript, SQL</p>
 
-                <Gallery></Gallery>
+                {/* <Gallery></Gallery> */}
             </div>
 
-              <div className="mt-8 w-full bg-[#DEDEDE] p-4 rounded-sm shadow-md ">
-                <h2 className="text-1xl mb-4 border-b-2 border-blue-900"><strong>Blender Projekte</strong></h2>
-                <ThreeViewer></ThreeViewer>
+            <div className="mt-8 w-full  bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6   my-4">
+            <h2 className="text-1xl mb-4 border-b-2 border-blue-900"><strong>Blender Projekte</strong></h2>
+                <p className="cursor-default">In meiner Freizeit beschäftige ich mich mit 3D-Modellierung und -Animationen in Blender.</p>
             </div>
         </div>
         
