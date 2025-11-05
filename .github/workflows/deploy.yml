@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   deploy:
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -29,7 +29,7 @@ jobs:
           username: root
           key: ${{ secrets.SSH_KEY }}
           source: "build/*"
-          target: "/var/www/html/homepage/build/"
+          target: "/var/www/html/kevinkraft/build/"
 
       - name: Restart PM2
         uses: appleboy/ssh-action@v0.1.6
