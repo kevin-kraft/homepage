@@ -6,7 +6,7 @@ import img2 from "~/assets/project_img/gg-persistent-vehicles/img2.png"
 import img3 from "~/assets/project_img/gg-persistent-vehicles/img3.png"
 
 const images = [
-  "test", 
+  img1,
 ];
 type GalleryProps = {
   galleryType?: string;
