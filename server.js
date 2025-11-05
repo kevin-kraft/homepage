@@ -1,25 +1,17 @@
-import express from "express";
 import { createRequestHandler } from "@react-router/express";
-import path from "path";
-import { fileURLToPath } from "url";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import express from "express";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+app.use(express.static("build/client"));
 
-const buildPath = path.join(__dirname, "build", "server");
-app.use(express.static(path.join(__dirname, "build", "client")));
-
-app.all(
-  "*",
+// notice that your app is "just a request handler"
+app.use(
   createRequestHandler({
-    build: await import(`${buildPath}/index.js`),
+    // and the result of `react-router build` is "just a module"
+    build: await import("./build/server/index.js"),
   }),
 );
 
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+app.listen(3000, () => {
+  console.log("App listening on http://localhost:3000");
+});
