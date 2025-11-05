@@ -1,9 +1,10 @@
 name: Deploy React app
 
-on: 
+on:
   push:
     branches:
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -11,30 +12,26 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Install Dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Build
-        run: npm run build
-
-      - name: Copy to Server
+      - name: Copy project to server
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.SERVER_IP }}
           username: root
           key: ${{ secrets.SSH_KEY }}
-          source: "build/*"
-          target: "/var/www/html/kevinkraft/build/"
+          source: "."
+          target: "/var/www/html/kevinkraft"
 
-      - name: Restart PM2
+      - name: Install, Build, and Restart on Server
         uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{ secrets.SERVER_IP }}
           username: root
           key: ${{ secrets.SSH_KEY }}
-          script: pm2 restart homepage
+          script: |
+            cd /var/www/html/kevinkraft
+            echo "📦 Installing dependencies..."
+            npm install --legacy-peer-deps
+            echo "🏗️ Building project..."
+            npm run build
+            echo "🚀 Restarting PM2..."
+            pm2 restart homepage || pm2 start server.js --name homepage
