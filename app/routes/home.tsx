@@ -66,7 +66,7 @@ export default function Home() {
                         <li><strong>Programmiersprachen:</strong> Java, JavaScript, TypeScript, C#, Lua, SQL, teilweise PHP, C++</li>
                         <li><strong>Webentwicklung:</strong> HTML, CSS, React, Node.js</li>
                         <li><strong>Datenbanken:</strong> MySQL, PostgreSQL</li>
-                        <li><strong>Tools & Infrastruktur:</strong> Git, Docker, Maven, Linux, Apache</li>
+                        <li><strong>Tools & Infrastruktur:</strong> Git, Docker, Maven, Linux, Windows, Apache</li>
                       </ul>
                     </div>
                 </div>
@@ -81,6 +81,17 @@ export default function Home() {
                       </ul>
                     </div>
                 </div>
+                     <div className="w-full bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6 mx-4  my-4">
+                    {/* Office / Standard Tools */}
+                    <div>
+                      <h3 className="font-semibold border-b-2 border-blue-500">Sprachkenntnisse</h3>
+                      <ul className="list-disc list-inside mt-2 space-y-1">
+                        <li>Deutsch Muttersprachlich</li>
+                        <li>Englisch B2</li>
+                        <li>Französisch B1</li>
+                      </ul>
+                    </div>
+                </div>
                 <div className="w-full bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6 mx-4  my-4">
                     {/* Office / Standard Tools */}
                     <div>
@@ -89,7 +100,6 @@ export default function Home() {
                         <li>Excel, Word, PowerPoint</li>
                       </ul>
                     </div>
-
                 </div>
             </div>
           </div>
