@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const buildPath = path.join(__dirname,"build", "build", "server");
+const buildPath = path.join(__dirname, "build", "server");
 app.use(express.static(path.join(__dirname, "build", "client")));
 
 app.all(
