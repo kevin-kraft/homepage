@@ -1,19 +1,13 @@
 // Gallery.tsx
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import img1 from "~/assets/project_img/gg-persistent-vehicles/img1.png"
-import img2 from "~/assets/project_img/gg-persistent-vehicles/img2.png"
-import img3 from "~/assets/project_img/gg-persistent-vehicles/img3.png"
 
-const images = [
-  img1,
-];
 type GalleryProps = {
-  galleryType?: string;
+  images: string[];
 
 };
 
-export default function Gallery({ galleryType }: GalleryProps) {
+export default function Gallery({ images }: GalleryProps) {
   const [index, setIndex] = useState(0);
 
   const prev = () => setIndex((index - 1 + images.length) % images.length);

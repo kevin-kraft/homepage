@@ -1,112 +1,88 @@
+// --- NEW PORTFOLIO HOMEPAGE (v2) ---
+// CTA = "Zu meinen Projekten"
+// Placeholder cat image kept intentionally, replace when ready.
+
 import type { Route } from "./+types/home";
-import profile from "~/assets/profile.png";
-import { FaGithub } from 'react-icons/fa';
-import { FaEnvelope } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaMapMarker } from "react-icons/fa";
-import { FaLandmark } from "react-icons/fa";
-import { FaRegCalendarAlt } from "react-icons/fa"; 
+import profile from "~/assets/profile.png"; // TODO: replace with real photo later
+import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import Footer from "~/components/Footer";
-import { title } from "process";
+import { ProjectCard } from "~/components/ProjectCard";
+import pvImg from "~/assets/gg_persistent_vehicles_script.jpg"
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Homepage - Kevin Kraft" },
-    { name: "description", content: "Willkommen auf der Homepage von Kevin Kraft!" },
+    { title: "Kevin Kraft – Portfolio" },
+    { name: "description", content: "Entdecke Projekte, Skills und berufliche Infos von Kevin Kraft." },
   ];
 }
 
 export default function Home() {
-  const infoItems = [
-  { icon: <FaEnvelope />, text: <p  className="cursor-default">k.krafti@web.de</p>, title: "E-Mail" },
-  { icon: <FaLandmark />, text: <p  className="cursor-default">Wirtschaftsingenieur</p>, title: "Studiengang am Karlsruher Institut für Technologie" },
-  { icon: <FaLinkedin />, text: <a className="hover:text-blue-500 transition-colors delay-20" href="https://www.linkedin.com/in/kevin-kraft-b86206395/" target="_blank" rel="noopener noreferrer">Kevin Kraft</a>, title: "LinkedIn"},
-  { icon: <FaGithub />, text: <a className="hover:text-blue-500 transition-colors delay-20" href="https://github.com/GlobalGurke" target="_blank" rel="noopener noreferrer">Github</a> , title: "Projekte auf Github"},
-];
   return (
-    <div className="w-full block text-gray-200">
-    <main className="pt-16 p-8 container mx-auto">
-      <div className="w-full block">
-          <div className="w-full flex justify-between items-start">
-            <div className="bg-gray-800/70 backdrop-blur-md shadow-lg rounded-xl  p-6  w-full max-w-md">
-              <img
-                src={profile}
-                alt="Profile"
-                className="w-32 h-32 rounded-full object-cover border-2 border-gray-300 mx-auto "
-              />
-              <h1 className="text-center text-3xl md:text-4xl font-bold my-5"><strong>Kevin Kraft</strong></h1>
-              {infoItems.map((item, index) => (
-                <div
-                  className="relative p-4 rounded-xl mb-4 transition-all duration-300 hover:shadow-lg bg-white/10 backdrop-blur-md"
-                  key={index}
-                  title={item.title}
-                >
-                  <p className="text-white font-semibold">{item.title}</p>
-                  <div className="flex items-center gap-2 mt-2">
-                    {item.icon} {item.text}
-                  </div>
-                </div>
+    <div className="w-full text-gray-200">
+      <main className="pt-20 px-6 max-w-6xl mx-auto">
 
-              ))}
+        {/* HERO SECTION */}
+        <section className="flex flex-col md:flex-row items-center gap-8 mb-16">
+          <img
+            src={profile}
+            alt="Profilbild"
+            className="w-40 h-40 rounded-full object-cover border-2 border-gray-300 shadow-lg"
+          />
+
+          <div className="flex-1">
+            <h1 className="text-4xl md:text-5xl font-extrabold">Kevin Kraft</h1>
+            <p className="text-lg text-gray-300 mt-3 max-w-xl">
+              Full-Stack Entwickler mit Fokus auf skalierbare Web- & Game-Systeme. Aktuell Wirtschaftsingenieurwesen am KIT.
+            </p>
+
+            <div className="flex items-center gap-4 mt-6 text-xl">
+              <a href="mailto:k.krafti@web.de" className="hover:text-blue-400"><FaEnvelope /></a>
+              <a href="https://www.linkedin.com/in/kevin-kraft-b86206395/" target="_blank" className="hover:text-blue-400"><FaLinkedin /></a>
+              <a href="https://github.com/GlobalGurke" target="_blank" className="hover:text-blue-400"><FaGithub /></a>
             </div>
-            <div className="ml-8 flex-1">
-              <div className="w-full bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6  mx-4 ">
-                <h1 className="border-b-2 border-blue-500"><strong>Über Mich</strong></h1>
-                <p className="my-4">Hi, ich bin Kevin Kraft. Ich studiere Wirtschaftsingenieurwesen am Karlsruher Institut für Technologie.
-Neben dem Studium entwickle ich Software und manage Projekte. Meine Erfahrungen umfassen unter anderem:</p>
-                <p>- Entwicklung von Spieleservern und Plugins für verschiedene Plattformen</p>
-                <p>- Anwendung von Projektmanagement-Methoden</p>
-                <br></br>
-                <p>Weitere Projekte findest du auf meiner Projektseite.</p>
 
-              </div>
-              <div className="w-full bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6 mx-4  my-4">
+            <a href="#projekte">
+              <button className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-all">
+                Zu meinen Projekten
+              </button>
+            </a>
+          </div>
+        </section>
 
-                    {/* Technische Skills */}
-                    <div>
-                      <h3 className="font-semibold border-b-2 border-blue-500">Technische Fähigkeiten</h3>
-                      <ul className="list-disc list-inside mt-2 space-y-1">
-                        <li><strong>Programmiersprachen:</strong> Java, JavaScript, TypeScript, C#, Lua, SQL, teilweise PHP, C++</li>
-                        <li><strong>Webentwicklung:</strong> HTML, CSS, React, Node.js</li>
-                        <li><strong>Datenbanken:</strong> MySQL, PostgreSQL</li>
-                        <li><strong>Tools & Infrastruktur:</strong> Git, Docker, Maven, Linux, Windows, Apache</li>
-                      </ul>
-                    </div>
-                </div>
-                <div className="w-full bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6 mx-4  my-4">
+        {/* ÜBER MICH */}
+        <section className="bg-gray-800/60 p-6 rounded-xl shadow-lg mb-10">
+          <h2 className="text-2xl font-bold border-b-2 border-blue-500 pb-1">Über mich</h2>
+          <p className="mt-4 leading-7 text-gray-300">
+            Ich entwickle Softwarelösungen mit Schwerpunkt auf Web- und Gameserver-Architektur. Neben meinem Studium am Karlsruher
+            Institut für Technologie leite ich Projekte, betreue Teams und baue Systeme, die im realen Einsatz genutzt werden.
+          </p>
+        </section>
 
-                    {/* Soft Skills / Projektmanagement */}
-                    <div>
-                      <h3 className="font-semibold border-b-2 border-blue-500">Soft Skills & Projektmanagement</h3>
-                      <ul className="list-disc list-inside mt-2 space-y-1">
-                        <li>Teammanagement & Projektleitung</li>
-                        <li>Erfahrung als Tutor</li>
-                      </ul>
-                    </div>
-                </div>
-                     <div className="w-full bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6 mx-4  my-4">
-                    {/* Office / Standard Tools */}
-                    <div>
-                      <h3 className="font-semibold border-b-2 border-blue-500">Sprachkenntnisse</h3>
-                      <ul className="list-disc list-inside mt-2 space-y-1">
-                        <li>Deutsch Muttersprachlich</li>
-                        <li>Englisch B2</li>
-                        <li>Französisch B1</li>
-                      </ul>
-                    </div>
-                </div>
-                <div className="w-full bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6 mx-4  my-4">
-                    {/* Office / Standard Tools */}
-                    <div>
-                      <h3 className="font-semibold border-b-2 border-blue-500">Office & Standard-Tools</h3>
-                      <ul className="list-disc list-inside mt-2 space-y-1">
-                        <li>Excel, Word, PowerPoint</li>
-                      </ul>
-                    </div>
-                </div>
+        {/* SKILLS */}
+        <section className="bg-gray-800/60 p-6 rounded-xl shadow-lg mb-10">
+          <h2 className="text-2xl font-bold border-b-2 border-blue-500 pb-1">Technische Skills</h2>
+          <div className="mt-4 grid md:grid-cols-2 gap-4">
+            <div>
+              <p className="font-semibold mb-1">Sprachen & Frameworks:</p>
+              <p className="text-gray-300">Java, JavaScript, TypeScript, C#, SQL, React, Node.js</p>
+            </div>
+            <div>
+              <p className="font-semibold mb-1">Tools & Infrastruktur:</p>
+              <p className="text-gray-300">Git, Docker, Maven, Linux, PostgreSQL, MySQL</p>
             </div>
           </div>
-      </div>
-    </main>
+        </section>
+
+        {/* PROJEKT-SECTION – PLACEHOLDER */}
+        <section id="projekte" className="mb-20">
+          <h2 className="text-3xl font-bold mb-6">Ausgewählte Projekte</h2>
+          
+          {/* TODO: Replace placeholders with real project components */}
+          <ProjectCard title="GG Persistent Vehicles" description="BESCHREIBUNG" tech={["Lua", "Javascript", "SQL"]} images={[pvImg]}></ProjectCard>
+          
+        </section>
+
+      </main>
+
     </div>
   );
 }
