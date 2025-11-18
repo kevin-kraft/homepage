@@ -3,11 +3,12 @@
 // Placeholder cat image kept intentionally, replace when ready.
 
 import type { Route } from "./+types/home";
-import profile from "~/assets/profile.png"; // TODO: replace with real photo later
+import profile from "~/assets/profile.jpeg"; 
 import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
-import Footer from "~/components/Footer";
 import { ProjectCard } from "~/components/ProjectCard";
-import pvImg from "~/assets/gg_persistent_vehicles_script.jpg"
+import pvImg from "~/assets/gg_persistent_vehicles_script.jpg"; 
+import langDe  from "../data/lang_de.json"; // Language manager Implementation
+
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Kevin Kraft – Portfolio" },
@@ -17,7 +18,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div className="w-full text-gray-200">
+    <div className="w-full">
       <main className="pt-20 px-6 max-w-6xl mx-auto">
 
         {/* HERO SECTION */}
@@ -25,13 +26,13 @@ export default function Home() {
           <img
             src={profile}
             alt="Profilbild"
-            className="w-40 h-40 rounded-full object-cover border-2 border-gray-300 shadow-lg"
+            className="w-60 h-60 rounded-full object-cover border-2 border-gray-300 shadow-lg"
           />
 
           <div className="flex-1">
             <h1 className="text-4xl md:text-5xl font-extrabold">Kevin Kraft</h1>
-            <p className="text-lg text-gray-300 mt-3 max-w-xl">
-              Full-Stack Entwickler mit Fokus auf skalierbare Web- & Game-Systeme. Aktuell Wirtschaftsingenieurwesen am KIT.
+            <p className="text-lg mt-3 max-w-xl">
+              Angehender Wirtschaftsingenieur. Privat leidenschaftlicher Softwareentwickler mit Fokus auf Web- und Gameserver-Architektur. Aktuell Student am Karlsruher Institut für Technologie.
             </p>
 
             <div className="flex items-center gap-4 mt-6 text-xl">
@@ -49,25 +50,24 @@ export default function Home() {
         </section>
 
         {/* ÜBER MICH */}
-        <section className="bg-gray-800/60 p-6 rounded-xl shadow-lg mb-10">
+        <section className="bg-gray-200 dark:bg-gray-800/60 p-6 rounded-xl shadow-lg mb-10">
           <h2 className="text-2xl font-bold border-b-2 border-blue-500 pb-1">Über mich</h2>
-          <p className="mt-4 leading-7 text-gray-300">
-            Ich entwickle Softwarelösungen mit Schwerpunkt auf Web- und Gameserver-Architektur. Neben meinem Studium am Karlsruher
-            Institut für Technologie leite ich Projekte, betreue Teams und baue Systeme, die im realen Einsatz genutzt werden.
+          <p className="mt-4 leading-7">
+            {langDe.about_me.description}
           </p>
         </section>
 
         {/* SKILLS */}
-        <section className="bg-gray-800/60 p-6 rounded-xl shadow-lg mb-10">
+        <section className="bg-gray-200 dark:bg-gray-800/60 p-6 rounded-xl shadow-lg mb-10">
           <h2 className="text-2xl font-bold border-b-2 border-blue-500 pb-1">Technische Skills</h2>
           <div className="mt-4 grid md:grid-cols-2 gap-4">
             <div>
               <p className="font-semibold mb-1">Sprachen & Frameworks:</p>
-              <p className="text-gray-300">Java, JavaScript, TypeScript, C#, SQL, React, Node.js</p>
+              <p>Java, JavaScript, TypeScript, C#, SQL, React, Node.js</p>
             </div>
             <div>
               <p className="font-semibold mb-1">Tools & Infrastruktur:</p>
-              <p className="text-gray-300">Git, Docker, Maven, Linux, PostgreSQL, MySQL</p>
+              <p>Git, Docker, Maven, Linux, PostgreSQL, MySQL</p>
             </div>
           </div>
         </section>
@@ -77,7 +77,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-6">Ausgewählte Projekte</h2>
           
           {/* TODO: Replace placeholders with real project components */}
-          <ProjectCard title="GG Persistent Vehicles" description="BESCHREIBUNG" tech={["Lua", "Javascript", "SQL"]} images={[pvImg]}></ProjectCard>
+          <ProjectCard title="GG Persistent Vehicles" description={langDe.projects.persistent_vehicles.description} tech={["Lua", "Javascript", "SQL"]} images={[pvImg]}></ProjectCard>
           
         </section>
 
