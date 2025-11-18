@@ -12,15 +12,15 @@ type ProjectCardProps = {
 
 export const ProjectCard = ({ title, description, tech, images, links } : ProjectCardProps) => {
 return (
-<div className="bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition duration-200">
+<div className="bg-gray-200 dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition duration-200">
 <h3 className="text-xl font-bold mb-2">{title}</h3>
-<p className="text-gray-300 text-sm mb-4">{description}</p>
+<p className="text-sm mb-4">{description}</p>
 
 
 {/* Tech stack badges */}
 <div className="flex flex-wrap gap-2 mb-4">
 {tech?.map((t, i) => (
-<span key={i} className="px-2 py-1 rounded-md bg-gray-800 text-xs border border-gray-700">
+<span key={i} className="px-2 py-1 rounded-md bg-gray-300 dark:bg-gray-800 text-xs border border-gray-700">
 {t}
 </span>
 ))}
