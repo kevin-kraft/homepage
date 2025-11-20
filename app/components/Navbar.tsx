@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { LanguageSelector } from "./LanguageSelector";
+import { getInstance } from "~/middleware/i18next";
+import { data } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({currentLocale} : { currentLocale : string}) {
       const [menuOpen, setMenuOpen] = useState(false);
     return (
     <div className="w-full z-50 block">
@@ -20,7 +23,9 @@ export default function Navbar() {
               Kontakt
             </Link>
           </div>
-
+          <div className="hidden sm:flex absolute right-0 mr-5">
+              <LanguageSelector/>
+          </div>
           {/* Mobile Menu Button */}
           <button
             className="sm:hidden text-blue-700 focus:outline-none"

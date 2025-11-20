@@ -1,4 +1,5 @@
 import {
+  data,
   isRouteErrorResponse,
   Links,
   Meta,
@@ -11,6 +12,11 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { i18nextMiddleware, getLocale, localeCookie } from "~/middleware/i18next";
+
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
+
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -23,19 +29,30 @@ export const links: Route.LinksFunction = () => [
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
 ];
+export const middleware = [i18nextMiddleware];
+
+export async function loader({ context }: Route.LoaderArgs) {
+  let locale = getLocale(context);
+  return data(
+    { locale }, // Return the locale to the UI
+    { headers: { "Set-Cookie": await localeCookie.serialize(locale) } },
+  );
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  let { i18n } = useTranslation(); 
   return (
-    <html lang="en">
+    <html lang={i18n.language} dir={i18n.dir(i18n.language)}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="~/assets/favicon.ico" />
         <Meta />
         <Links />
       </head>
       <body>
         <div className="sticky top-0 z-50 block">
-          <Navbar></Navbar>
+          <Navbar currentLocale={i18n.language}></Navbar>
         </div>
         {children}
         <Footer></Footer>
@@ -46,7 +63,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
+export default function App({loaderData: { locale } } : Route.ComponentProps) {
+  let { i18n } = useTranslation();
+
+ useEffect(() => {
+    if (i18n.language !== locale) i18n.changeLanguage(locale);
+  }, [locale, i18n]);
   return <Outlet />;
 }
 
