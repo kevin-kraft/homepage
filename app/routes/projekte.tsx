@@ -7,7 +7,7 @@ export default function Projekte() {
             <h1 className="text-4xl  text-center "><strong>Meine Projekte</strong></h1>
             <div className="mt-8 w-full  bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6  my-4 ">
                 <h2 className="text-1xl mb-4 border-b-2 border-blue-900"><strong>Pluginentwicklung: gg-Persistent-Vehicles</strong></h2>
-                <p className="cursor-default">Dieses Projekt ist Teil des gg-scripts-Projekts, in dessen Rahmen ich Plugins für die Spieleplattform FiveM entwickle und vertreibe.
+                <p className="">Dieses Projekt ist Teil des gg-scripts-Projekts, in dessen Rahmen ich Plugins für die Spieleplattform FiveM entwickle und vertreibe.
                 Das Plugin dient der Fahrzeugverwaltung und bietet unter anderem die Möglichkeit, Fahrzeuge persistent zwischen Serverneustarts zu speichern.
                 Eine C#-basierte Erweiterung des Projekts ist aktuell in Entwicklung und steht kurz vor der Fertigstellung (ca. 90 % abgeschlossen).
                 </p>
@@ -18,7 +18,7 @@ export default function Projekte() {
             </div>
              <div className="mt-8 w-full  bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6   my-4">
                 <h2 className="text-1xl mb-4 border-b-2 border-blue-900"><strong>Pluginentwicklung: gg-computers [In Entwicklung]</strong></h2>
-                <p className="cursor-default">Dieses Plugin stellt ein virtuelles Computersystem dar, das dank umfangreicher Konfigurationsmöglichkeiten in verschiedene Betriebsmodi versetzt werden kann.
+                <p className="">Dieses Plugin stellt ein virtuelles Computersystem dar, das dank umfangreicher Konfigurationsmöglichkeiten in verschiedene Betriebsmodi versetzt werden kann.
 Es verfügt über ein gruppenbasiertes Rechtesystem, einen Datei-Explorer, einen Texteditor, eine Benutzerverwaltung sowie eine Einstellungsseite.
 Das Projekt wurde mit JavaScript unter Verwendung von jQuery und HTML/CSS entwickelt.
 Derzeit befindet sich das Script noch in Entwicklung, da einige Funktionen – etwa der Texteditor – noch nicht vollständig implementiert sind.
@@ -31,7 +31,7 @@ Derzeit befindet sich das Script noch in Entwicklung, da einige Funktionen – e
 
             <div className="mt-8 w-full  bg-gray-800/70 backdrop-blur-md shadow-xl rounded-xl p-6   my-4">
             <h2 className="text-1xl mb-4 border-b-2 border-blue-900"><strong>Blender Projekte</strong></h2>
-                <p className="cursor-default">In meiner Freizeit beschäftige ich mich mit 3D-Modellierung und -Animationen in Blender.</p>
+                <p className="">In meiner Freizeit beschäftige ich mich mit 3D-Modellierung und -Animationen in Blender.</p>
             </div>
         </div>
         

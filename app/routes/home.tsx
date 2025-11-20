@@ -7,7 +7,10 @@ import profile from "~/assets/profile.jpeg";
 import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { ProjectCard } from "~/components/ProjectCard";
 import pvImg from "~/assets/gg_persistent_vehicles_script.jpg"; 
-import langDe  from "../data/lang_de.json"; // Language manager Implementation
+import { getInstance } from "~/middleware/i18next";
+import { data } from "react-router";
+import { useTranslation } from "react-i18next";
+import { Form } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -16,7 +19,13 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
+export async function loader({ context }: Route.LoaderArgs) {
+  const i18n = getInstance(context);
+  return data({ locale: i18n.language });
+}
+
+export default function Home({loaderData}: Route.ComponentProps) {
+  let { t } = useTranslation();
   return (
     <div className="w-full">
       <main className="pt-20 px-6 max-w-6xl mx-auto">
@@ -32,7 +41,7 @@ export default function Home() {
           <div className="flex-1">
             <h1 className="text-4xl md:text-5xl font-extrabold">Kevin Kraft</h1>
             <p className="text-lg mt-3 max-w-xl">
-              Angehender Wirtschaftsingenieur. Privat leidenschaftlicher Softwareentwickler mit Fokus auf Web- und Gameserver-Architektur. Aktuell Student am Karlsruher Institut für Technologie.
+             {t("description")}
             </p>
 
             <div className="flex items-center gap-4 mt-6 text-xl">
@@ -42,31 +51,31 @@ export default function Home() {
             </div>
 
             <a href="#projekte">
-              <button className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-all">
-                Zu meinen Projekten
+              <button className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-all cursor-pointer">
+                {t("toProjects")}
               </button>
             </a>
           </div>
         </section>
 
         {/* ÜBER MICH */}
-        <section className="bg-gray-200 dark:bg-gray-800/60 p-6 rounded-xl shadow-lg mb-10">
-          <h2 className="text-2xl font-bold border-b-2 border-blue-500 pb-1">Über mich</h2>
+        <section className="bg-gray-200 dark:bg-gray-800/60 p-6 rounded-xl shadow-lg mb-10 ">
+          <h2 className="text-2xl font-bold border-b-2 border-blue-500 pb-1">{t("about_me.title")}</h2>
           <p className="mt-4 leading-7">
-            {langDe.about_me.description}
+            {t("about_me.description")}
           </p>
         </section>
 
         {/* SKILLS */}
         <section className="bg-gray-200 dark:bg-gray-800/60 p-6 rounded-xl shadow-lg mb-10">
-          <h2 className="text-2xl font-bold border-b-2 border-blue-500 pb-1">Technische Skills</h2>
+          <h2 className="text-2xl font-bold border-b-2 border-blue-500 pb-1">{t("skills.title")}</h2>
           <div className="mt-4 grid md:grid-cols-2 gap-4">
             <div>
-              <p className="font-semibold mb-1">Sprachen & Frameworks:</p>
+              <p className="font-semibold mb-1">{t("skills.languages")}</p>
               <p>Java, JavaScript, TypeScript, C#, SQL, React, Node.js</p>
             </div>
             <div>
-              <p className="font-semibold mb-1">Tools & Infrastruktur:</p>
+              <p className="font-semibold mb-1">{t("skills.tools")}</p>
               <p>Git, Docker, Maven, Linux, PostgreSQL, MySQL</p>
             </div>
           </div>
@@ -74,10 +83,10 @@ export default function Home() {
 
         {/* PROJEKT-SECTION – PLACEHOLDER */}
         <section id="projekte" className="mb-20">
-          <h2 className="text-3xl font-bold mb-6">Ausgewählte Projekte</h2>
+          <h2 className="text-3xl font-bold mb-6">{t("projects.title")}</h2>
           
           {/* TODO: Replace placeholders with real project components */}
-          <ProjectCard title="GG Persistent Vehicles" description={langDe.projects.persistent_vehicles.description} tech={["Lua", "Javascript", "SQL"]} images={[pvImg]}></ProjectCard>
+          <ProjectCard title={t("projects.persistent_vehicles.title")} description={t("projects.persistent_vehicles.description")} tech={["Lua", "Javascript", "SQL"]} images={[pvImg]}></ProjectCard>
           
         </section>
 
