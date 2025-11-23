@@ -4,13 +4,14 @@
 
 import type { Route } from "./+types/home";
 import profile from "~/assets/profile.jpeg"; 
-import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa6";
 import { ProjectCard } from "~/components/ProjectCard";
 import pvImg from "~/assets/gg_persistent_vehicles_script.jpg"; 
 import { getInstance } from "~/middleware/i18next";
 import { data } from "react-router";
 import { useTranslation } from "react-i18next";
 import { Form } from "react-router";
+import AnimatedCounter from "~/components/AnimatedCounter";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -86,8 +87,25 @@ export default function Home({loaderData}: Route.ComponentProps) {
           <h2 className="text-3xl font-bold mb-6">{t("projects.title")}</h2>
           
           {/* TODO: Replace placeholders with real project components */}
-          <ProjectCard title={t("projects.persistent_vehicles.title")} description={t("projects.persistent_vehicles.description")} tech={["Lua", "Javascript", "SQL"]} images={[pvImg]}></ProjectCard>
-          
+          <ProjectCard title={t("projects.persistent_vehicles.title")} description={t("projects.persistent_vehicles.description")} tech={["Lua", "Javascript", "SQL", "C#", "phpmyadmin"]} images={[pvImg]}>
+            <div className="p-5 grid grid-cols-2 gap-6 text-center">
+              {/* Revenue */}
+              <div className="p-4 bg-gray-300 dark:bg-gray-800 border-black text-black dark:text-white rounded-xl shadow-md hover:shadow-lg transition">
+                <p className="text-3xl font-bold">
+                <AnimatedCounter value={1500}>€+</AnimatedCounter> 
+                </p>
+                <p className="text-sm mt-1">Revenue</p>
+              </div>
+
+              {/* Customers */}
+              <div className="p-4 bg-gray-300 dark:bg-gray-800 border-black text-black dark:text-white rounded-xl shadow-md hover:shadow-lg transition">
+                <p className="text-3xl font-bold">
+                  <AnimatedCounter value={100}>+</AnimatedCounter>
+                </p>
+                <p className="text-sm mt-1">Customers</p>
+              </div>
+            </div>
+          </ProjectCard>
         </section>
 
       </main>

@@ -16,8 +16,13 @@ export default {
         title: "Selected Projects", 
         persistent_vehicles: {
             title: "GG Persistent Vehicles", 
-            description: "A vehicle persistence system for the modding platform FiveM (GTA5) that allows players to permanently save and manage their vehicles. Developed with a focus on performance, reliability, and user-friendliness. The system features a UI that makes vehicle management simple and intuitive.",
+            description: "A vehicle persistence system for the modding platform FiveM (GTA5) that allows players to permanently save and manage their vehicles. Developed with a focus on performance, reliability, and user-friendliness. With a user interface, managing vehicles is simple and intuitive. A current version written in C# is still in development and is approximately 90% complete.",
         },
+    },
+    navbar: {
+        home: "Home",
+        projects: "Projects",
+        contact: "Contact",
     },
     goToNotFound: "Go to not found page",
 };

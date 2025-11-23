@@ -1,16 +1,16 @@
 import Gallery from "./Gallery";
 type ProjectCardProps = {
-    title: string;
-    description: string;
-    tech?: string[];
-    images?: string[];
-    links?: {
-        demo?: string;
-        github?: string;
-    };
+  title: string;
+  description: string;
+  tech?: string[];
+  images?: string[];
+  links?: {
+    demo?: string;
+    github?: string;
+  };
+  children?: React.ReactNode; // <-- ADD THIS
 };
-
-export const ProjectCard = ({ title, description, tech, images, links } : ProjectCardProps) => {
+export const ProjectCard = ({ title, description, tech, images, links, children } : ProjectCardProps) => {
 return (
 <div className="bg-gray-200 dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition duration-200">
 <h3 className="text-xl font-bold mb-2">{title}</h3>
@@ -46,6 +46,7 @@ GitHub
 </a>
 )}
 </div>
+{children}
 </div>
 );
 };
