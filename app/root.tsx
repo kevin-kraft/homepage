@@ -52,7 +52,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <div className="sticky top-0 z-50 block">
-          <Navbar currentLocale={i18n.language}></Navbar>
+          <Navbar currentLocale={i18n}></Navbar>
         </div>
         {children}
         <Footer></Footer>
